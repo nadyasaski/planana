@@ -129,7 +129,7 @@ export default function CalendarView({ tasks, categories, onToggleTask }: Calend
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <CalendarIcon className="w-6 h-6" />
-              <span className="text-xl font-bold">🍌 Kalender Tugas</span>
+              <span className="text-xl font-bold">Kalender Tugas</span>
             </div>
             <div className="flex items-center gap-2">
               <Button
