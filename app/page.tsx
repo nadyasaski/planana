@@ -402,7 +402,7 @@ export default function Home() {
         <div className="text-center">
           <div className="text-6xl mb-4 animate-bounce">🍌</div>
           <div className="text-xl font-bold text-orange-800 animate-pulse">Memuat Planana...</div>
-          <div className="text-sm text-orange-600 mt-2">Tugas rapih, hati happy</div>
+          <div className="text-sm text-orange-600 mt-2">Tugas rapi, hati happy</div>
         </div>
       </div>
     )
@@ -424,7 +424,7 @@ export default function Home() {
                     Planana
                   </span>
                 </h1>
-                <p className="text-orange-700 text-lg font-medium">Tugas rapih, hati happy ✨</p>
+                <p className="text-orange-700 text-lg font-medium">Tugas rapi, hati happy ✨</p>
               </div>
 
               <div className="flex items-center gap-3">
@@ -464,7 +464,7 @@ export default function Home() {
               <CardHeader className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-t-lg">
                 <CardTitle className="flex items-center gap-3 text-xl">
                   <Trophy className="w-6 h-6" />
-                  <span>🏆 Progress Hari Ini & Terlambat</span>
+                  <span> Progress Hari Ini & Terlambat</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-6">
@@ -546,7 +546,7 @@ export default function Home() {
                   <DialogContent className="sm:max-w-md bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-300">
                     <DialogHeader>
                       <DialogTitle className="text-xl font-bold text-orange-800 flex items-center gap-2">
-                        <span className="text-2xl">🍌</span>
+{/*                         <span className="text-2xl">🍌</span> */}
                         Tambah Tugas Baru
                       </DialogTitle>
                     </DialogHeader>
