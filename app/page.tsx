@@ -402,7 +402,7 @@ export default function Home() {
         <div className="text-center">
           <div className="text-6xl mb-4 animate-bounce">🍌</div>
           <div className="text-xl font-bold text-orange-800 animate-pulse">Memuat Planana...</div>
-          <div className="text-sm text-orange-600 mt-2">Tugas rapi, hati happy</div>
+          <div className="text-sm text-orange-600 mt-2">Rencana rapi, hati happy</div>
         </div>
       </div>
     )
@@ -424,7 +424,7 @@ export default function Home() {
                     Planana
                   </span>
                 </h1>
-                <p className="text-orange-700 text-lg font-medium">Tugas rapi, hati happy ✨</p>
+                <p className="text-orange-700 text-lg font-medium">Rencana rapi, hati happy ✨</p>
               </div>
 
               <div className="flex items-center gap-3">
