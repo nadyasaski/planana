@@ -906,7 +906,7 @@ export default function Home() {
                   <div className="text-3xl font-bold text-yellow-600 bg-gradient-to-r from-white to-yellow-100 px-8 py-4 rounded-2xl shadow-2xl border-4 border-yellow-400">
                     <Sparkles className="w-8 h-8 inline mr-3" />
                     <span className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
-                      Selamat! 🍌
+                      All done!
                     </span>
                   </div>
                 </div>
