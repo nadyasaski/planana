@@ -106,7 +106,7 @@ export default function Home() {
       fetchTasks()
       if (emailNotificationsEnabled) {
         toast({
-          title: "📧 Email notifications aktif!",
+          title: "📧 Email notifications active!",
           description: "You received a reminder email 30 minutes before your task due.",
         })
       }
@@ -452,7 +452,7 @@ export default function Home() {
                     </div>
                     <DropdownMenuItem onClick={handleSignOut} className="text-red-600 hover:bg-red-50">
                       <LogOut className="mr-2 h-4 w-4" />
-                      <span>Keluar</span>
+                      <span>Log Out</span>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -531,7 +531,7 @@ export default function Home() {
                   }
                 >
                   <CalendarDays className="w-5 h-5 mr-2" />
-                  Kalender
+                  Calendar
                 </Button>
                 <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
                   <DialogTrigger asChild>
@@ -758,7 +758,7 @@ export default function Home() {
                                       {isOverdue(task.due_date, task.due_time) && !task.completed && (
                                         <Badge variant="destructive" className="text-sm font-bold animate-pulse">
                                           <Bell className="w-3 h-3 mr-1" />
-                                          Terlambat!
+                                          You're Late!
                                         </Badge>
                                       )}
                                     </div>
