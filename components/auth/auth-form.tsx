@@ -152,7 +152,7 @@ export default function AuthForm() {
               Planana
             </span>
           </h1>
-          <p className="text-orange-700 text-lg font-medium">Remcana rapi, hati happy ✨</p>
+          <p className="text-orange-700 text-lg font-medium">Rencana rapi, hati hepi</p>
         </div>
 
         <Card className="bg-gradient-to-br from-white to-yellow-50 border-yellow-300 shadow-2xl">
@@ -207,7 +207,7 @@ export default function AuthForm() {
                       <Input
                         id="signin-email"
                         type="email"
-                        placeholder="nama@email.com"
+                        placeholder="name@gmail.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="pl-10 border-yellow-300 focus:border-orange-400"
