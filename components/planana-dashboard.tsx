@@ -375,11 +375,11 @@ export default function PlananaApp({ user }: PlananaProps) {
                     id="description"
                     value={newTask.description}
                     onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
-                    placeholder="Description (opsional)..."
+                    placeholder="Description (Optional)..."
                   />
                 </div>
                 <div>
-                  <Label htmlFor="category">Kategori</Label>
+                  <Label htmlFor="category">Category</Label>
                   <Select
                     value={newTask.category}
                     onValueChange={(value) => setNewTask({ ...newTask, category: value })}
