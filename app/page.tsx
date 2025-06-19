@@ -168,7 +168,7 @@ export default function Home() {
         setTimeout(() => setShowCelebration(false), 3000)
         toast({
           title: "🎉 Selamat!",
-          description: `All ${selectedCategory === "all" ? "hari ini" : categories.find((c) => c.value === selectedCategory)?.label} are done!`,
+          description: `All ${selectedCategory === "of your" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} tasks are done!`,
         })
       }
     }
