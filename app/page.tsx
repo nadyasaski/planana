@@ -424,7 +424,7 @@ export default function Home() {
                     Planana
                   </span>
                 </h1>
-                <p className="text-orange-700 text-lg font-medium">Rencana rapi, hati happy ✨</p>
+                <p className="text-orange-700 text-lg font-medium">Rencana rapi, hati happy</p>
               </div>
 
               <div className="flex items-center gap-3">
@@ -565,7 +565,7 @@ export default function Home() {
                       </div>
                       <div>
                         <Label htmlFor="description" className="text-orange-800 font-medium">
-                          Deskripsi
+                          Description
                         </Label>
                         <Textarea
                           id="description"
@@ -577,7 +577,7 @@ export default function Home() {
                       </div>
                       <div>
                         <Label htmlFor="category" className="text-orange-800 font-medium">
-                          Kategori
+                          Category
                         </Label>
                         <Select
                           value={newTask.category}
@@ -601,7 +601,7 @@ export default function Home() {
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="due_date" className="text-orange-800 font-medium">
-                            Tanggal
+                            Date
                           </Label>
                           <Input
                             id="due_date"
@@ -613,7 +613,7 @@ export default function Home() {
                         </div>
                         <div>
                           <Label htmlFor="due_time" className="text-orange-800 font-medium">
-                            Waktu
+                            Time
                           </Label>
                           <Input
                             id="due_time"
@@ -839,7 +839,7 @@ export default function Home() {
                                             <div className="grid grid-cols-2 gap-4">
                                               <div>
                                                 <Label htmlFor="edit-due_date" className="text-orange-800 font-medium">
-                                                  Tanggal
+                                                  Date
                                                 </Label>
                                                 <Input
                                                   id="edit-due_date"
@@ -853,7 +853,7 @@ export default function Home() {
                                               </div>
                                               <div>
                                                 <Label htmlFor="edit-due_time" className="text-orange-800 font-medium">
-                                                  Waktu
+                                                  Time
                                                 </Label>
                                                 <Input
                                                   id="edit-due_time"
@@ -871,7 +871,7 @@ export default function Home() {
                                               className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 shadow-lg"
                                             >
                                               <Edit3 className="w-4 h-4 mr-2" />
-                                              Simpan Perubahan
+                                              Save Changes
                                             </Button>
                                           </div>
                                         )}
