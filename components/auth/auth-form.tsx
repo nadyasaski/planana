@@ -41,20 +41,20 @@ export default function AuthForm() {
         // Email confirmation required
         setNeedsEmailConfirmation(true)
         toast({
-          title: "Cek email Anda! 📧",
+          title: "Please check your email! 📧",
           description:
-            "Kami telah mengirim link konfirmasi ke email Anda. Silakan klik link tersebut untuk mengaktifkan akun.",
+            "A confirmation link has been sent to your email. Please click on the link to activate your account.",
         })
       } else {
         // Auto sign in successful
         toast({
-          title: "🍌 Pendaftaran berhasil!",
-          description: "Selamat datang di Planana!",
+          title: "🍌 Registration success!",
+          description: "Welcome to Planana!",
         })
       }
     } catch (error: any) {
       toast({
-        title: "Gagal mendaftar",
+        title: "Failed to regist",
         description: error.message,
         variant: "destructive",
       })
@@ -76,18 +76,18 @@ export default function AuthForm() {
       if (error) {
         if (error.message.includes("Email not confirmed")) {
           setNeedsEmailConfirmation(true)
-          throw new Error("Email belum dikonfirmasi. Silakan cek email Anda dan klik link konfirmasi.")
+          throw new Error("Email has not been confirmed. Please check your email and click the confirmation link.")
         }
         throw error
       }
 
       toast({
-        title: "🍌 Login berhasil!",
-        description: "Selamat datang kembali di Planana!",
+        title: "🍌 Login success!",
+        description: "Welcome back!",
       })
     } catch (error: any) {
       toast({
-        title: "Gagal login",
+        title: "Login failed",
         description: error.message,
         variant: "destructive",
       })
@@ -108,7 +108,7 @@ export default function AuthForm() {
       if (error) throw error
     } catch (error: any) {
       toast({
-        title: "Gagal login dengan Google",
+        title: "Failed to login with Google",
         description: error.message,
         variant: "destructive",
       })
@@ -127,12 +127,12 @@ export default function AuthForm() {
       if (error) throw error
 
       toast({
-        title: "Email konfirmasi dikirim ulang! 📧",
-        description: "Silakan cek email Anda.",
+        title: "Confirmation email has been resent! 📧",
+        description: "Please chech your email.",
       })
     } catch (error: any) {
       toast({
-        title: "Gagal mengirim ulang email",
+        title: "Failed to resent confirmation email",
         description: error.message,
         variant: "destructive",
       })
@@ -152,14 +152,14 @@ export default function AuthForm() {
               Planana
             </span>
           </h1>
-          <p className="text-orange-700 text-lg font-medium">Tugas rapih, hati happy ✨</p>
+          <p className="text-orange-700 text-lg font-medium">Remcana rapi, hati happy ✨</p>
         </div>
 
         <Card className="bg-gradient-to-br from-white to-yellow-50 border-yellow-300 shadow-2xl">
           <CardHeader className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-t-lg">
-            <CardTitle className="text-xl font-bold">🎉 Selamat Datang!</CardTitle>
+            <CardTitle className="text-xl font-bold">🎉 Welcome!</CardTitle>
             <CardDescription className="text-yellow-100">
-              Masuk ke akun Anda atau buat akun baru untuk mulai menggunakan Planana
+              Sign in to your existing account or create a new account to start using Planana
             </CardDescription>
           </CardHeader>
           <CardContent className="p-6">
@@ -167,15 +167,14 @@ export default function AuthForm() {
               <Alert className="mb-4 border-yellow-300 bg-yellow-50">
                 <AlertCircle className="h-4 w-4 text-yellow-600" />
                 <AlertDescription className="text-yellow-800">
-                  Email konfirmasi telah dikirim. Silakan cek email Anda dan klik link konfirmasi untuk mengaktifkan
-                  akun.
+                  A confirmation link has been sent to your email. Please click on the link to activate your account
                   <Button
                     variant="link"
                     className="p-0 h-auto ml-2 text-yellow-700"
                     onClick={resendConfirmation}
                     disabled={isLoading}
                   >
-                    Kirim ulang
+                    Re-sent email
                   </Button>
                 </AlertDescription>
               </Alert>
@@ -187,13 +186,13 @@ export default function AuthForm() {
                   value="signin"
                   className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-orange-400 data-[state=active]:text-white font-medium"
                 >
-                  Masuk
+                  Sign In
                 </TabsTrigger>
                 <TabsTrigger
                   value="signup"
                   className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-orange-400 data-[state=active]:text-white font-medium"
                 >
-                  Daftar
+                  Sign Up
                 </TabsTrigger>
               </TabsList>
 
@@ -239,7 +238,7 @@ export default function AuthForm() {
                     disabled={isLoading}
                   >
                     {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Masuk
+                    Sign In
                   </Button>
                 </form>
 
@@ -249,7 +248,7 @@ export default function AuthForm() {
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
                     <span className="bg-gradient-to-r from-white to-yellow-50 px-2 text-orange-600 font-medium">
-                      Atau
+                      Or
                     </span>
                   </div>
                 </div>
@@ -280,7 +279,7 @@ export default function AuthForm() {
                       fill="#EA4335"
                     />
                   </svg>
-                  Masuk dengan Google
+                  Sign In with Google
                 </Button>
               </TabsContent>
 
@@ -288,14 +287,14 @@ export default function AuthForm() {
                 <form onSubmit={handleSignUp} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="signup-name" className="text-orange-800 font-medium">
-                      Nama Lengkap
+                      Full Name
                     </Label>
                     <div className="relative">
                       <User className="absolute left-3 top-3 h-4 w-4 text-orange-400" />
                       <Input
                         id="signup-name"
                         type="text"
-                        placeholder="Nama lengkap Anda"
+                        placeholder="Your full name"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         className="pl-10 border-yellow-300 focus:border-orange-400"
@@ -345,7 +344,7 @@ export default function AuthForm() {
                     disabled={isLoading}
                   >
                     {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Daftar
+                    Sign Up
                   </Button>
                 </form>
 
@@ -355,7 +354,7 @@ export default function AuthForm() {
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
                     <span className="bg-gradient-to-r from-white to-yellow-50 px-2 text-orange-600 font-medium">
-                      Atau
+                      Or
                     </span>
                   </div>
                 </div>
@@ -386,7 +385,7 @@ export default function AuthForm() {
                       fill="#EA4335"
                     />
                   </svg>
-                  Daftar dengan Google
+                  Sign Up with Google
                 </Button>
               </TabsContent>
             </Tabs>
@@ -394,7 +393,7 @@ export default function AuthForm() {
         </Card>
 
         <div className="text-center mt-6 text-sm text-orange-600">
-          <p>Dengan mendaftar, Anda menyetujui syarat dan ketentuan kami</p>
+          <p>By signing up, you have agreed to our terms and conditions</p>
         </div>
       </div>
     </div>
