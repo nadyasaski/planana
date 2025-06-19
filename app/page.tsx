@@ -167,8 +167,8 @@ export default function Home() {
         setShowCelebration(true)
         setTimeout(() => setShowCelebration(false), 3000)
         toast({
-          title: "🎉 Selamat!",
-          description: `All ${selectedCategory === "of your" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} tasks are done!`,
+          title: "🎉 Congratulations!",
+          description: `All ${selectedCategory === "hari ini" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} tasks are done!`,
         })
       }
     }
@@ -648,7 +648,7 @@ export default function Home() {
                       value="all"
                       className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-yellow-400 data-[state=active]:to-orange-400 data-[state=active]:text-white font-medium"
                     >
-                      Semua
+                      All
                     </TabsTrigger>
                     {categories.map((category) => (
                       <TabsTrigger
