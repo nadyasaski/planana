@@ -167,8 +167,8 @@ export default function Home() {
         setShowCelebration(true)
         setTimeout(() => setShowCelebration(false), 3000)
         toast({
-          title: "🎉 Congratulations!",
-          description: `All ${selectedCategory === "All" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} tasks are done!`,
+          title: "Have a good rest!",
+          description: `All ${selectedCategory === "all" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} tasks are done.`,
         })
       }
     }
