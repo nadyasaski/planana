@@ -56,11 +56,11 @@ interface Task {
 }
 
 const categories = [
-  { value: "work", label: "Kerja", color: "bg-blue-500" },
-  { value: "personal", label: "Pribadi", color: "bg-green-500" },
-  { value: "health", label: "Kesehatan", color: "bg-red-500" },
-  { value: "learning", label: "Belajar", color: "bg-purple-500" },
-  { value: "shopping", label: "Belanja", color: "bg-orange-500" },
+  { value: "work", label: "Work", color: "bg-blue-500" },
+  { value: "personal", label: "Personal", color: "bg-green-500" },
+  { value: "health", label: "Health", color: "bg-red-500" },
+  { value: "learning", label: "Learning", color: "bg-purple-500" },
+  { value: "shopping", label: "Shopping", color: "bg-orange-500" },
 ]
 
 export default function Home() {
@@ -107,7 +107,7 @@ export default function Home() {
       if (emailNotificationsEnabled) {
         toast({
           title: "📧 Email notifications aktif!",
-          description: "Anda akan mendapat email pengingat 30 menit sebelum tugas jatuh tempo.",
+          description: "You received a reminder email 30 minutes before your task due.",
         })
       }
     }
@@ -150,7 +150,7 @@ export default function Home() {
       setTasks(data || [])
     } catch (error: any) {
       toast({
-        title: "Gagal memuat tugas",
+        title: "Failed loading task",
         description: error.message,
         variant: "destructive",
       })
@@ -168,7 +168,7 @@ export default function Home() {
         setTimeout(() => setShowCelebration(false), 3000)
         toast({
           title: "🎉 Selamat!",
-          description: `Semua tugas ${selectedCategory === "all" ? "hari ini" : categories.find((c) => c.value === selectedCategory)?.label} telah selesai!`,
+          description: `All ${selectedCategory === "all" ? "hari ini" : categories.find((c) => c.value === selectedCategory)?.label} are done!`,
         })
       }
     }
@@ -229,13 +229,13 @@ export default function Home() {
         })
         setIsAddDialogOpen(false)
         toast({
-          title: "🍌 Tugas ditambahkan!",
-          description: "Tugas baru berhasil ditambahkan ke daftar Anda.",
+          title: "🍌 Task Added!",
+          description: "New task is added to your list.",
         })
       }
     } catch (error: any) {
       toast({
-        title: "Gagal menambah tugas",
+        title: "Failed adding task",
         description: error.message,
         variant: "destructive",
       })
@@ -277,12 +277,12 @@ export default function Home() {
       }
 
       toast({
-        title: "✅ Tugas diperbarui!",
-        description: "Perubahan tugas berhasil disimpan.",
+        title: "✅ Task updated!",
+        description: "Task changes are saved.",
       })
     } catch (error: any) {
       toast({
-        title: "Gagal memperbarui tugas",
+        title: "Failed updating task",
         description: error.message,
         variant: "destructive",
       })
@@ -299,12 +299,12 @@ export default function Home() {
       emailNotificationManager.clearNotification(taskId)
 
       toast({
-        title: "🗑️ Tugas dihapus!",
-        description: "Tugas berhasil dihapus dari daftar Anda.",
+        title: "🗑️ Task deleted!",
+        description: "Task successfully deleted from your list.",
       })
     } catch (error: any) {
       toast({
-        title: "Gagal menghapus tugas",
+        title: "Failed deleting task",
         description: error.message,
         variant: "destructive",
       })
@@ -339,7 +339,7 @@ export default function Home() {
       }
     } catch (error: any) {
       toast({
-        title: "Gagal memperbarui status tugas",
+        title: "Failed updating task status",
         description: error.message,
         variant: "destructive",
       })
@@ -464,14 +464,14 @@ export default function Home() {
               <CardHeader className="bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-t-lg">
                 <CardTitle className="flex items-center gap-3 text-xl">
                   <Trophy className="w-6 h-6" />
-                  <span> Progress Hari Ini & Terlambat</span>
+                  <span> Tasks Due Today </span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-6">
                   <div>
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-lg font-bold text-orange-800">Kemajuan Keseluruhan</span>
+                      <span className="text-lg font-bold text-orange-800">Progress Bar</span>
                       <span className="text-lg font-bold text-orange-600 bg-yellow-100 px-3 py-1 rounded-full">
                         {todayProgress.completed}/{todayProgress.total} ({Math.round(todayProgress.percentage)}%)
                       </span>
@@ -504,7 +504,7 @@ export default function Home() {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-3xl font-bold text-orange-800 flex items-center gap-2">
                 <span>{viewMode === "list" ? "📝" : "📅"}</span>
-                {viewMode === "list" ? "Daftar Tugas" : "Kalender Tugas"}
+                {viewMode === "list" ? "Task List" : "Task Calendar"}
               </h2>
               <div className="flex gap-3">
                 <Button
@@ -540,26 +540,26 @@ export default function Home() {
                       className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
                     >
                       <Plus className="w-5 h-5 mr-2" />
-                      <span className="font-bold">Tambah Tugas</span>
+                      <span className="font-bold">Add Task</span>
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-md bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-300">
                     <DialogHeader>
                       <DialogTitle className="text-xl font-bold text-orange-800 flex items-center gap-2">
 {/*                         <span className="text-2xl">🍌</span> */}
-                        Tambah Tugas Baru
+                        Add New Task
                       </DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4">
                       <div>
                         <Label htmlFor="title" className="text-orange-800 font-medium">
-                          Judul Tugas
+                          Task Title
                         </Label>
                         <Input
                           id="title"
                           value={newTask.title}
                           onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-                          placeholder="Masukkan judul tugas..."
+                          placeholder="Insert task title..."
                           className="border-yellow-300 focus:border-orange-400"
                         />
                       </div>
@@ -571,7 +571,7 @@ export default function Home() {
                           id="description"
                           value={newTask.description}
                           onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
-                          placeholder="Deskripsi tugas (opsional)..."
+                          placeholder="Description (opsional)..."
                           className="border-yellow-300 focus:border-orange-400"
                         />
                       </div>
@@ -629,7 +629,7 @@ export default function Home() {
                         className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 shadow-lg"
                       >
                         <Plus className="w-4 h-4 mr-2" />
-                        Tambah Tugas
+                        Add Task
                       </Button>
                     </div>
                   </DialogContent>
@@ -672,8 +672,8 @@ export default function Home() {
                             <div className="text-yellow-400 mb-6">
                               <Circle className="w-20 h-20 mx-auto" />
                             </div>
-                            <h3 className="text-2xl font-bold text-orange-800 mb-3">Belum ada tugas 🍌</h3>
-                            <p className="text-orange-600 text-lg">Tambahkan tugas pertama Anda untuk memulai!</p>
+                            <h3 className="text-2xl font-bold text-orange-800 mb-3">No tasks yet 🍌</h3>
+                            <p className="text-orange-600 text-lg">Add your first task to start!</p>
                           </CardContent>
                         </Card>
                       ) : (
@@ -780,14 +780,14 @@ export default function Home() {
                                         <DialogHeader>
                                           <DialogTitle className="text-xl font-bold text-orange-800 flex items-center gap-2">
                                             <span className="text-2xl">✏️</span>
-                                            Edit Tugas
+                                            Edit Task
                                           </DialogTitle>
                                         </DialogHeader>
                                         {editingTask && (
                                           <div className="space-y-4">
                                             <div>
                                               <Label htmlFor="edit-title" className="text-orange-800 font-medium">
-                                                Judul Tugas
+                                                Task Title
                                               </Label>
                                               <Input
                                                 id="edit-title"
