@@ -168,7 +168,7 @@ export default function Home() {
         setTimeout(() => setShowCelebration(false), 3000)
         toast({
           title: "🎉 Congratulations!",
-          description: `All ${selectedCategory === "hari ini" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} tasks are done!`,
+          description: `All ${selectedCategory === "All" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} tasks are done!`,
         })
       }
     }
@@ -401,8 +401,8 @@ export default function Home() {
       <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-orange-100 to-yellow-200 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4 animate-bounce">🍌</div>
-          <div className="text-xl font-bold text-orange-800 animate-pulse">Memuat Planana...</div>
-          <div className="text-sm text-orange-600 mt-2">Rencana rapi, hati happy</div>
+          <div className="text-xl font-bold text-orange-800 animate-pulse">Loading Planana...</div>
+          <div className="text-sm text-orange-600 mt-2">Rencana rapi, hati hepi</div>
         </div>
       </div>
     )
@@ -424,7 +424,7 @@ export default function Home() {
                     Planana
                   </span>
                 </h1>
-                <p className="text-orange-700 text-lg font-medium">Rencana rapi, hati happy</p>
+                <p className="text-orange-700 text-lg font-medium">Rencana rapi, hati hepi</p>
               </div>
 
               <div className="flex items-center gap-3">
