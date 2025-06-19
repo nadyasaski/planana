@@ -42,11 +42,11 @@ interface Task {
 }
 
 const categories = [
-  { value: "work", label: "Kerja", color: "bg-blue-500" },
-  { value: "personal", label: "Pribadi", color: "bg-green-500" },
-  { value: "health", label: "Kesehatan", color: "bg-red-500" },
-  { value: "learning", label: "Belajar", color: "bg-purple-500" },
-  { value: "shopping", label: "Belanja", color: "bg-orange-500" },
+  { value: "work", label: "Work", color: "bg-blue-500" },
+  { value: "personal", label: "Personal", color: "bg-green-500" },
+  { value: "health", label: "Health", color: "bg-red-500" },
+  { value: "learning", label: "Learning", color: "bg-purple-500" },
+  { value: "shopping", label: "Shopping", color: "bg-orange-500" },
 ]
 
 interface PlananaProps {
@@ -90,7 +90,7 @@ export default function PlananaApp({ user }: PlananaProps) {
       setTasks(data || [])
     } catch (error: any) {
       toast({
-        title: "Gagal memuat tugas",
+        title: "Failed loading task",
         description: error.message,
         variant: "destructive",
       })
@@ -109,8 +109,8 @@ export default function PlananaApp({ user }: PlananaProps) {
       setShowCelebration(true)
       setTimeout(() => setShowCelebration(false), 3000)
       toast({
-        title: "🎉 Selamat!",
-        description: `Semua tugas ${selectedCategory === "all" ? "hari ini" : categories.find((c) => c.value === selectedCategory)?.label} telah selesai!`,
+        title: "🎉 All Done!",
+        description: `All ${selectedCategory === "all" ? "tasks" : categories.find((c) => c.value === selectedCategory)?.label} are done!`,
       })
     }
   }
@@ -147,13 +147,13 @@ export default function PlananaApp({ user }: PlananaProps) {
         })
         setIsAddDialogOpen(false)
         toast({
-          title: "Tugas ditambahkan!",
-          description: "Tugas baru berhasil ditambahkan ke daftar Anda.",
+          title: "Task added!",
+          description: "New task is successfully added to your list.",
         })
       }
     } catch (error: any) {
       toast({
-        title: "Gagal menambah tugas",
+        title: "Failed adding task",
         description: error.message,
         variant: "destructive",
       })
@@ -179,12 +179,12 @@ export default function PlananaApp({ user }: PlananaProps) {
       setTasks(tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)))
       setEditingTask(null)
       toast({
-        title: "Tugas diperbarui!",
-        description: "Perubahan tugas berhasil disimpan.",
+        title: "Task updated!",
+        description: "Task changes are succcessfully saved.",
       })
     } catch (error: any) {
       toast({
-        title: "Gagal memperbarui tugas",
+        title: "Failed updating task",
         description: error.message,
         variant: "destructive",
       })
@@ -199,12 +199,12 @@ export default function PlananaApp({ user }: PlananaProps) {
 
       setTasks(tasks.filter((task) => task.id !== taskId))
       toast({
-        title: "Tugas dihapus!",
-        description: "Tugas berhasil dihapus dari daftar Anda.",
+        title: "Task deleted!",
+        description: "Task is successfully deleted from your list.",
       })
     } catch (error: any) {
       toast({
-        title: "Gagal menghapus tugas",
+        title: "Failed deleting task",
         description: error.message,
         variant: "destructive",
       })
@@ -223,7 +223,7 @@ export default function PlananaApp({ user }: PlananaProps) {
       setTasks(tasks.map((t) => (t.id === taskId ? { ...t, completed: !t.completed } : t)))
     } catch (error: any) {
       toast({
-        title: "Gagal memperbarui status tugas",
+        title: "Failed updating task status",
         description: error.message,
         variant: "destructive",
       })
@@ -274,7 +274,7 @@ export default function PlananaApp({ user }: PlananaProps) {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
         <div className="text-center">
           <div className="text-4xl mb-4">🍌</div>
-          <div className="text-lg font-medium text-gray-600">Memuat Planana...</div>
+          <div className="text-lg font-medium text-gray-600">Loading Planana...</div>
         </div>
       </div>
     )
@@ -290,7 +290,7 @@ export default function PlananaApp({ user }: PlananaProps) {
               <span className="text-yellow-500">🍌</span>
               Planana
             </h1>
-            <p className="text-gray-600">Kelola tugas Anda dengan mudah dan efisien</p>
+            <p className="text-gray-600">Managing tasks made easy and efficient</p>
           </div>
 
           <DropdownMenu>
@@ -347,26 +347,26 @@ export default function PlananaApp({ user }: PlananaProps) {
 
         {/* Add Task Button */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold text-gray-800">Daftar Tugas</h2>
+          <h2 className="text-2xl font-semibold text-gray-800">Task List</h2>
           <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
             <DialogTrigger asChild>
               <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
                 <Plus className="w-4 h-4 mr-2" />
-                Tambah Tugas
+                Add Task
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
-                <DialogTitle>Tambah Tugas Baru</DialogTitle>
+                <DialogTitle>Add New Task</DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="title">Judul Tugas</Label>
+                  <Label htmlFor="title">Task Title</Label>
                   <Input
                     id="title"
                     value={newTask.title}
                     onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-                    placeholder="Masukkan judul tugas..."
+                    placeholder="Insert task title..."
                   />
                 </div>
                 <div>
@@ -375,7 +375,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                     id="description"
                     value={newTask.description}
                     onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
-                    placeholder="Deskripsi tugas (opsional)..."
+                    placeholder="Description (opsional)..."
                   />
                 </div>
                 <div>
@@ -401,7 +401,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="due_date">Tanggal</Label>
+                    <Label htmlFor="due_date">Date</Label>
                     <Input
                       id="due_date"
                       type="date"
@@ -410,7 +410,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="due_time">Waktu</Label>
+                    <Label htmlFor="due_time">Time</Label>
                     <Input
                       id="due_time"
                       type="time"
@@ -420,7 +420,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                   </div>
                 </div>
                 <Button onClick={addTask} className="w-full">
-                  Tambah Tugas
+                  Add Task
                 </Button>
               </div>
             </DialogContent>
@@ -449,8 +449,8 @@ export default function PlananaApp({ user }: PlananaProps) {
                     <div className="text-gray-400 mb-4">
                       <Circle className="w-16 h-16 mx-auto" />
                     </div>
-                    <h3 className="text-lg font-medium text-gray-600 mb-2">Belum ada tugas</h3>
-                    <p className="text-gray-500">Tambahkan tugas pertama Anda untuk memulai!</p>
+                    <h3 className="text-lg font-medium text-gray-600 mb-2">No tasks yet</h3>
+                    <p className="text-gray-500">Add your first task to start!</p>
                   </CardContent>
                 </Card>
               ) : (
@@ -535,12 +535,12 @@ export default function PlananaApp({ user }: PlananaProps) {
                               </DialogTrigger>
                               <DialogContent className="sm:max-w-md">
                                 <DialogHeader>
-                                  <DialogTitle>Edit Tugas</DialogTitle>
+                                  <DialogTitle>Edit Task</DialogTitle>
                                 </DialogHeader>
                                 {editingTask && (
                                   <div className="space-y-4">
                                     <div>
-                                      <Label htmlFor="edit-title">Judul Tugas</Label>
+                                      <Label htmlFor="edit-title">Task Title</Label>
                                       <Input
                                         id="edit-title"
                                         value={editingTask.title}
@@ -548,7 +548,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                                       />
                                     </div>
                                     <div>
-                                      <Label htmlFor="edit-description">Deskripsi</Label>
+                                      <Label htmlFor="edit-description">Description</Label>
                                       <Textarea
                                         id="edit-description"
                                         value={editingTask.description || ""}
@@ -558,7 +558,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                                       />
                                     </div>
                                     <div>
-                                      <Label htmlFor="edit-category">Kategori</Label>
+                                      <Label htmlFor="edit-category">Category</Label>
                                       <Select
                                         value={editingTask.category}
                                         onValueChange={(value) => setEditingTask({ ...editingTask, category: value })}
@@ -580,7 +580,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
                                       <div>
-                                        <Label htmlFor="edit-due_date">Tanggal</Label>
+                                        <Label htmlFor="edit-due_date">Date</Label>
                                         <Input
                                           id="edit-due_date"
                                           type="date"
@@ -589,7 +589,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                                         />
                                       </div>
                                       <div>
-                                        <Label htmlFor="edit-due_time">Waktu</Label>
+                                        <Label htmlFor="edit-due_time">Time</Label>
                                         <Input
                                           id="edit-due_time"
                                           type="time"
@@ -599,7 +599,7 @@ export default function PlananaApp({ user }: PlananaProps) {
                                       </div>
                                     </div>
                                     <Button onClick={() => updateTask(editingTask)} className="w-full">
-                                      Simpan Perubahan
+                                      Save Changes
                                     </Button>
                                   </div>
                                 )}
@@ -631,7 +631,7 @@ export default function PlananaApp({ user }: PlananaProps) {
               <div className="text-6xl mb-4">🎉</div>
               <div className="text-2xl font-bold text-yellow-600 bg-white px-6 py-3 rounded-full shadow-lg">
                 <Sparkles className="w-6 h-6 inline mr-2" />
-                Selamat!
+                All Done!
               </div>
             </div>
           </div>
