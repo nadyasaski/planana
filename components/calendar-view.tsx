@@ -234,7 +234,7 @@ export default function CalendarView({ tasks, categories, onToggleTask }: Calend
             <DialogTitle className="flex items-center gap-2 text-orange-800">
               <span className="text-2xl">🍌</span>
               <div>
-                <div className="font-bold text-lg">Today's Tasks</div>
+                <div className="font-bold text-lg">Tasks To Do</div>
                 <div className="text-sm font-normal text-orange-600">{selectedDate && formatDate(selectedDate)}</div>
               </div>
             </DialogTitle>
