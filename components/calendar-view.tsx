@@ -207,7 +207,7 @@ export default function CalendarView({ tasks, categories, onToggleTask }: Calend
                         ))}
                         {dayTasks.length > 2 && (
                           <div className="text-xs text-orange-600 text-center font-medium bg-yellow-100 rounded-lg py-1">
-                            +{dayTasks.length - 2} lagi
+                            +{dayTasks.length - 2} more
                           </div>
                         )}
                         {dayTasks.length > 0 && (
@@ -234,7 +234,7 @@ export default function CalendarView({ tasks, categories, onToggleTask }: Calend
             <DialogTitle className="flex items-center gap-2 text-orange-800">
               <span className="text-2xl">🍌</span>
               <div>
-                <div className="font-bold text-lg">Tugas Hari Ini</div>
+                <div className="font-bold text-lg">Today's Tasks</div>
                 <div className="text-sm font-normal text-orange-600">{selectedDate && formatDate(selectedDate)}</div>
               </div>
             </DialogTitle>
